@@ -160,3 +160,60 @@ document.querySelectorAll('.support-card').forEach(card=>{
     if(e.key==='Enter' || e.key===' '){e.preventDefault();card.querySelector('.support-link')?.click()}
   });
 });
+
+// Forest World: scroll position scrubs the cinematic video timeline.
+(()=>{
+  const world=document.querySelector('[data-forest-world]');
+  const video=document.querySelector('[data-forest-video]');
+  if(!world || !video) return;
+
+  const scenes=[...world.querySelectorAll('[data-forest-scene]')];
+  const progressEl=world.querySelector('[data-forest-progress]');
+  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let duration=0;
+  let raf=0;
+  let pendingProgress=0;
+
+  const clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
+  const sceneIndex=p=>p<.26?0:p<.51?1:p<.76?2:3;
+
+  function measureProgress(){
+    const rect=world.getBoundingClientRect();
+    const travel=Math.max(1,world.offsetHeight-window.innerHeight);
+    return clamp(-rect.top/travel,0,1);
+  }
+
+  function render(progress){
+    if(reduceMotion) return;
+    if(duration && Number.isFinite(duration)){
+      const target=clamp(progress*duration,0,Math.max(0,duration-.03));
+      if(Math.abs(video.currentTime-target)>.025){
+        try{ video.currentTime=target; }catch(_e){}
+      }
+    }
+    const active=sceneIndex(progress);
+    scenes.forEach((scene,index)=>scene.classList.toggle('is-active',index===active));
+    if(progressEl) progressEl.style.transform=`scaleY(${progress})`;
+    world.classList.toggle('is-progressed',progress>.035);
+  }
+
+  function update(){
+    raf=0;
+    pendingProgress=measureProgress();
+    render(pendingProgress);
+  }
+  function queue(){
+    if(!raf) raf=requestAnimationFrame(update);
+  }
+
+  video.addEventListener('loadedmetadata',()=>{
+    duration=video.duration || 0;
+    video.pause();
+    render(measureProgress());
+  });
+  video.addEventListener('canplay',()=>video.pause(),{once:false});
+
+  window.addEventListener('scroll',queue,{passive:true});
+  window.addEventListener('resize',queue,{passive:true});
+  queue();
+})();
