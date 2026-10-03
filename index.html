@@ -43,18 +43,70 @@
         <div class="forest-vignette" aria-hidden="true"></div>
 
         <div class="forest-scene forest-scene-1 is-active" data-forest-scene="0">
-          <div class="shell forest-copy">
-            <div class="eyebrow">● &nbsp; PSYCHOLOG • POZNAŃ</div>
-            <h1>Nie wszystko musisz<br>nieść samodzielnie.</h1>
-            <p>Spokojna przestrzeń, w której możesz się zatrzymać, lepiej zrozumieć siebie i odnaleźć własną drogę.</p>
-            <div class="hero-actions">
-              <a href="#contact" class="btn btn-gold magnetic">Umów pierwszą konsultację <span>→</span></a>
-              <a href="#about" class="btn btn-ghost magnetic">Poznaj mnie</a>
+          <div class="shell forest-hero-grid">
+            <div class="forest-copy">
+              <div class="eyebrow">● &nbsp; PSYCHOLOG • POZNAŃ</div>
+              <h1>Nie wszystko musisz<br>nieść samodzielnie.</h1>
+              <p>Spokojna przestrzeń, w której możesz się zatrzymać, lepiej zrozumieć siebie i odnaleźć własną drogę.</p>
+              <div class="hero-actions">
+                <a href="#forest-booking" class="btn btn-gold magnetic">Umów pierwszą konsultację <span>→</span></a>
+                <a href="#about" class="btn btn-ghost magnetic">Poznaj mnie</a>
+              </div>
+              <div class="micro-features">
+                <span>▣ <b>Pełna poufność</b></span>
+                <span>◷ <b>50-minutowe sesje</b></span>
+                <span>▱ <b>Online / stacjonarnie</b></span>
+              </div>
             </div>
-            <div class="micro-features">
-              <span>▣ <b>Pełna poufność</b></span>
-              <span>◷ <b>50-minutowe sesje</b></span>
-              <span>▱ <b>Online / stacjonarnie</b></span>
+
+            <div class="forest-booking-cluster" id="forest-booking" data-forest-booking>
+              <div class="forest-portrait-card">
+                <img src="assets/anna-portrait.jpeg" alt="Anna Bagrowska, psycholożka" />
+                <div class="forest-portrait-caption">
+                  <strong>Anna Bagrowska</strong>
+                  <span>psycholożka • Poznań</span>
+                </div>
+              </div>
+
+              <aside class="forest-calendar-card" aria-label="Wybór preferowanego terminu konsultacji">
+                <div class="forest-calendar-top">
+                  <div>
+                    <small>PIERWSZA KONSULTACJA</small>
+                    <h2>Znajdźmy termin</h2>
+                  </div>
+                  <span class="forest-session-time">50 min</span>
+                </div>
+                <p class="forest-calendar-lead">Wybierz preferowany dzień. Anna potwierdzi dokładny termin wiadomością.</p>
+
+                <div class="forest-month-row">
+                  <button type="button" class="forest-month-arrow" aria-label="Poprzedni miesiąc" disabled>‹</button>
+                  <strong>Październik 2026</strong>
+                  <button type="button" class="forest-month-arrow" aria-label="Następny miesiąc" disabled>›</button>
+                </div>
+                <div class="forest-weekdays" aria-hidden="true"><span>Pn</span><span>Wt</span><span>Śr</span><span>Cz</span><span>Pt</span><span>So</span><span>Nd</span></div>
+                <div class="forest-calendar-days" role="group" aria-label="Wybierz preferowany dzień">
+                  <span class="is-empty"></span><span class="is-empty"></span><span class="is-empty"></span>
+                  <span class="is-muted">1</span><span class="is-muted">2</span><span class="is-muted">3</span><span class="is-muted">4</span>
+                  <button type="button" data-booking-day="5 października">5</button>
+                  <button type="button" data-booking-day="6 października">6</button>
+                  <button type="button" data-booking-day="7 października">7</button>
+                  <button type="button" data-booking-day="8 października">8</button>
+                  <button type="button" data-booking-day="9 października">9</button>
+                  <span>10</span><span>11</span>
+                  <button type="button" data-booking-day="12 października">12</button>
+                  <button type="button" data-booking-day="13 października">13</button>
+                  <button type="button" data-booking-day="14 października">14</button>
+                  <button type="button" data-booking-day="15 października">15</button>
+                  <button type="button" data-booking-day="16 października">16</button>
+                  <span>17</span><span>18</span>
+                </div>
+
+                <div class="forest-booking-bottom">
+                  <div class="forest-selected-date" data-selected-date>Wybierz dzień z kalendarza</div>
+                  <a href="#contact" class="forest-booking-cta" data-booking-cta aria-disabled="true">Poproś o termin <span>→</span></a>
+                </div>
+                <small class="forest-calendar-note">To prośba o termin — rezerwacja zostanie potwierdzona po kontakcie.</small>
+              </aside>
             </div>
           </div>
         </div>
