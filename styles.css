@@ -168,3 +168,42 @@ section:nth-of-type(odd) .reveal:not(.delay-1):not(.delay-2):not(.delay-3){trans
 .forest-world.is-progressed .forest-scroll-hint{opacity:0}
 @media(max-width:760px){.forest-world{height:340vh}.forest-video{object-position:52% center}.forest-overlay{background:linear-gradient(180deg,rgba(3,15,9,.2) 0%,rgba(3,15,9,.36) 42%,rgba(3,15,9,.82) 100%)}.forest-scene{align-items:flex-end}.forest-scene .shell{width:min(100% - 32px,1240px);padding-bottom:92px}.forest-copy{padding-top:0}.forest-scene h1{font-size:clamp(45px,12vw,64px)}.forest-scene-1 p{font-size:14px;max-width:470px}.forest-big-copy{font-size:clamp(39px,10.5vw,58px)}.forest-scene-2 .shell{padding-left:0;padding-bottom:100px}.forest-align-right{display:block}.forest-align-right .forest-big-copy{text-align:left}.forest-scene-4 .shell{padding-bottom:100px}.forest-progress{right:12px;height:110px}.forest-scroll-hint{bottom:16px}.forest-scene .micro-features{display:flex;flex-wrap:wrap;gap:10px 16px}}
 @media(prefers-reduced-motion:reduce){.forest-world{height:auto}.forest-sticky{position:relative;min-height:100svh}.forest-video{display:none}.forest-sticky{background:linear-gradient(90deg,rgba(3,15,9,.72),rgba(3,15,9,.25)),url('assets/forest-poster.jpg') center/cover no-repeat}.forest-scene{display:none!important}.forest-scene-1{display:flex!important;position:relative;min-height:100svh;opacity:1;transform:none;filter:none}.forest-progress,.forest-scroll-hint{display:none}}
+
+/* ===== Forest World v2: portrait + booking overlay ===== */
+.forest-video{transform:scale(1.018);backface-visibility:hidden;transform-origin:center center}
+.forest-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(410px,.72fr);gap:clamp(34px,5vw,82px);align-items:center;padding-top:74px;padding-bottom:36px}
+.forest-hero-grid .forest-copy{padding-top:0;min-width:0}
+.forest-booking-cluster{position:relative;align-self:center;justify-self:end;width:min(100%,520px);min-height:560px;display:flex;align-items:flex-end;justify-content:flex-end;filter:drop-shadow(0 28px 70px rgba(0,0,0,.25))}
+.forest-portrait-card{position:absolute;right:150px;top:0;width:270px;height:360px;overflow:hidden;border:1px solid rgba(255,255,255,.24);border-radius:34px 34px 92px 34px;background:#1d3527;transform:rotate(-2.2deg);box-shadow:0 30px 70px rgba(0,0,0,.24);z-index:1}
+.forest-portrait-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 46%,rgba(5,16,10,.08) 60%,rgba(5,16,10,.76) 100%);pointer-events:none}
+.forest-portrait-card img{width:100%;height:100%;object-fit:cover;object-position:50% 28%;filter:saturate(.88) contrast(1.02)}
+.forest-portrait-caption{position:absolute;left:22px;bottom:20px;z-index:2;color:#fff;display:flex;flex-direction:column;gap:2px;text-shadow:0 3px 14px rgba(0,0,0,.4)}
+.forest-portrait-caption strong{font-family:var(--serif);font-size:23px;font-weight:500}
+.forest-portrait-caption span{font-size:10px;letter-spacing:.13em;text-transform:uppercase;opacity:.72}
+.forest-calendar-card{position:relative;z-index:3;width:360px;padding:20px;border:1px solid rgba(255,255,255,.28);border-radius:25px;background:rgba(246,241,230,.92);backdrop-filter:blur(18px) saturate(1.05);-webkit-backdrop-filter:blur(18px) saturate(1.05);color:#18251d;box-shadow:0 24px 70px rgba(0,0,0,.2)}
+.forest-calendar-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.forest-calendar-top small{display:block;font-size:9px;letter-spacing:.18em;color:#68736b;margin-bottom:4px}
+.forest-calendar-top h2{margin:0;font-family:var(--serif);font-size:30px;line-height:1;font-weight:500;letter-spacing:-.035em}
+.forest-session-time{display:inline-flex;align-items:center;justify-content:center;min-width:58px;height:30px;border:1px solid rgba(28,55,39,.13);border-radius:999px;background:rgba(255,255,255,.58);font-size:11px;font-weight:700;color:#526157}
+.forest-calendar-lead{margin:10px 0 14px;font-size:11px;line-height:1.45;color:#69756d}
+.forest-month-row{display:grid;grid-template-columns:32px 1fr 32px;align-items:center;gap:8px;padding:9px 0;border-top:1px solid rgba(25,45,33,.1);border-bottom:1px solid rgba(25,45,33,.1)}
+.forest-month-row strong{text-align:center;font-size:12px;font-weight:700}
+.forest-month-arrow{width:30px;height:30px;border:0;border-radius:50%;background:transparent;color:#667269;font-size:19px}.forest-month-arrow:disabled{opacity:.25}
+.forest-weekdays,.forest-calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.forest-weekdays{padding:9px 0 5px;font-size:8px;text-transform:uppercase;letter-spacing:.1em;color:#8a938d}
+.forest-calendar-days>*{display:grid;place-items:center;aspect-ratio:1;border-radius:50%;font-size:10px}
+.forest-calendar-days button{border:1px solid rgba(26,60,40,.09);background:rgba(255,255,255,.55);color:#203329;cursor:pointer;transition:.2s ease;font:inherit}
+.forest-calendar-days button:hover,.forest-calendar-days button:focus-visible{background:#dfe8dd;border-color:#9bb19d;outline:none}
+.forest-calendar-days button.is-selected{background:#234b34;color:#fff;border-color:#234b34;box-shadow:0 6px 16px rgba(35,75,52,.22)}
+.forest-calendar-days span{color:#819087}.forest-calendar-days .is-muted{opacity:.42}.forest-calendar-days .is-empty{visibility:hidden}
+.forest-booking-bottom{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;margin-top:14px}
+.forest-selected-date{font-size:10px;line-height:1.35;color:#657168}
+.forest-booking-cta{display:inline-flex;align-items:center;gap:9px;min-height:42px;padding:0 14px;border-radius:999px;background:#234b34;color:#fff;font-size:11px;font-weight:700;white-space:nowrap;transition:.2s ease}
+.forest-booking-cta[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.forest-booking-cta:not([aria-disabled="true"]):hover{transform:translateY(-2px);background:#193d29}
+.forest-calendar-note{display:block;margin-top:10px;color:#889189;font-size:8px;line-height:1.35}
+.forest-scene-1:not(.is-active) .forest-booking-cluster{pointer-events:none}
+
+@media(max-width:1040px){.forest-hero-grid{grid-template-columns:minmax(0,1fr) 390px;gap:24px}.forest-booking-cluster{transform:scale(.9);transform-origin:right center}.forest-scene h1{font-size:clamp(50px,6vw,76px)}}
+@media(max-width:820px){.forest-world{height:390vh}.forest-scene-1{align-items:flex-end}.forest-hero-grid{display:block;padding-top:120px;padding-bottom:76px}.forest-booking-cluster{position:absolute;right:18px;top:118px;width:265px;min-height:0;display:block;transform:none}.forest-portrait-card{display:none}.forest-calendar-card{width:265px;padding:14px;border-radius:20px;background:rgba(246,241,230,.9)}.forest-calendar-top h2{font-size:23px}.forest-calendar-lead{display:none}.forest-month-row{padding:6px 0}.forest-weekdays{padding:6px 0 3px}.forest-calendar-days{gap:2px}.forest-calendar-days>*{font-size:9px}.forest-calendar-note{display:none}.forest-booking-bottom{grid-template-columns:1fr}.forest-booking-cta{justify-content:center}.forest-copy{max-width:72%}.forest-scene-1 p{max-width:430px}}
+@media(max-width:600px){.forest-booking-cluster{display:none}.forest-copy{max-width:none}.forest-hero-grid{padding-top:0;padding-bottom:94px}.forest-scene-1 .shell{padding-bottom:94px}}
