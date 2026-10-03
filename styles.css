@@ -138,3 +138,33 @@ section:nth-of-type(odd) .reveal:not(.delay-1):not(.delay-2):not(.delay-3){trans
   .falling-leaf{display:none}.cursor-halo{display:none}.reveal,.hero-enter,.magnetic,.support-card{transition:none!important;animation:none!important;transform:none!important}.scroll-progress span{transition:none}
 }
 @media(max-width:760px){.ambient-leaves{opacity:.45}.falling-leaf:nth-child(n+5){display:none}.cursor-halo{display:none}.footer-main{padding-top:70px;padding-bottom:62px}}
+
+/* ===== Forest World cinematic hero ===== */
+.forest-world{position:relative;height:430vh;background:#06110b}
+.forest-sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#06110b;isolation:isolate}
+.forest-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;transform:scale(1.012);filter:saturate(.92) contrast(1.03) brightness(.9);will-change:transform}
+.forest-overlay{position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(3,15,9,.78) 0%,rgba(3,15,9,.44) 34%,rgba(3,15,9,.08) 65%,rgba(3,15,9,.23) 100%),linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.03) 48%,rgba(0,0,0,.34));pointer-events:none}
+.forest-vignette{position:absolute;inset:-2%;z-index:2;background:radial-gradient(ellipse at center,transparent 38%,rgba(2,12,7,.1) 68%,rgba(2,10,6,.42) 100%);pointer-events:none}
+.forest-scene{position:absolute;inset:0;z-index:4;display:flex;align-items:center;opacity:0;transform:translate3d(0,34px,0);filter:blur(3px);pointer-events:none;transition:opacity .42s ease,transform .68s cubic-bezier(.16,1,.3,1),filter .42s ease}
+.forest-scene.is-active{opacity:1;transform:none;filter:none;pointer-events:auto}
+.forest-scene .shell{width:min(1240px,calc(100% - 56px))}
+.forest-copy{padding-top:70px}
+.forest-scene h1{max-width:860px;margin:0;font-family:var(--serif);font-size:clamp(58px,6.4vw,98px);font-weight:500;line-height:.93;letter-spacing:-.05em;color:#f7f2e8;text-wrap:balance;text-shadow:0 6px 38px rgba(0,0,0,.25)}
+.forest-scene-1 p{max-width:560px;margin:26px 0 30px;color:rgba(255,255,255,.83);font-size:16px;line-height:1.65}
+.forest-scene .micro-features{color:rgba(255,255,255,.72)}
+.forest-big-copy{max-width:900px;margin:0;font-family:var(--serif);font-size:clamp(48px,5.4vw,84px);font-weight:500;line-height:.98;letter-spacing:-.045em;color:#f7f2e8;text-shadow:0 6px 34px rgba(0,0,0,.32);text-wrap:balance}
+.forest-scene-2 .shell{padding-left:8vw}
+.forest-align-right{display:flex;justify-content:flex-end}
+.forest-align-right .forest-big-copy{text-align:right}
+.forest-scene-4{align-items:flex-end}
+.forest-scene-4 .shell{padding-bottom:13vh}
+.forest-next{display:inline-flex;align-items:center;gap:12px;margin-top:30px;padding-bottom:7px;border-bottom:1px solid rgba(255,255,255,.38);font-size:13px;font-weight:600;color:#fff;letter-spacing:.02em}
+.forest-next span{transition:transform .25s ease}.forest-next:hover span{transform:translateY(4px)}
+.forest-progress{position:absolute;right:26px;top:50%;z-index:7;width:2px;height:140px;transform:translateY(-50%);background:rgba(255,255,255,.16)}
+.forest-progress span{display:block;width:100%;height:100%;background:rgba(255,255,255,.78);transform:scaleY(0);transform-origin:top;will-change:transform}
+.forest-scroll-hint{position:absolute;left:50%;bottom:24px;z-index:7;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;color:rgba(255,255,255,.62);text-transform:uppercase;letter-spacing:.15em;font-size:9px;pointer-events:none;transition:opacity .3s ease}
+.forest-scroll-hint>span{display:block;width:1px;height:31px;background:rgba(255,255,255,.52);transform-origin:top;animation:forestScrollHint 1.8s ease-in-out infinite}
+@keyframes forestScrollHint{0%,100%{transform:scaleY(.18);opacity:.25}50%{transform:scaleY(1);opacity:1}}
+.forest-world.is-progressed .forest-scroll-hint{opacity:0}
+@media(max-width:760px){.forest-world{height:340vh}.forest-video{object-position:52% center}.forest-overlay{background:linear-gradient(180deg,rgba(3,15,9,.2) 0%,rgba(3,15,9,.36) 42%,rgba(3,15,9,.82) 100%)}.forest-scene{align-items:flex-end}.forest-scene .shell{width:min(100% - 32px,1240px);padding-bottom:92px}.forest-copy{padding-top:0}.forest-scene h1{font-size:clamp(45px,12vw,64px)}.forest-scene-1 p{font-size:14px;max-width:470px}.forest-big-copy{font-size:clamp(39px,10.5vw,58px)}.forest-scene-2 .shell{padding-left:0;padding-bottom:100px}.forest-align-right{display:block}.forest-align-right .forest-big-copy{text-align:left}.forest-scene-4 .shell{padding-bottom:100px}.forest-progress{right:12px;height:110px}.forest-scroll-hint{bottom:16px}.forest-scene .micro-features{display:flex;flex-wrap:wrap;gap:10px 16px}}
+@media(prefers-reduced-motion:reduce){.forest-world{height:auto}.forest-sticky{position:relative;min-height:100svh}.forest-video{display:none}.forest-sticky{background:linear-gradient(90deg,rgba(3,15,9,.72),rgba(3,15,9,.25)),url('assets/forest-poster.jpg') center/cover no-repeat}.forest-scene{display:none!important}.forest-scene-1{display:flex!important;position:relative;min-height:100svh;opacity:1;transform:none;filter:none}.forest-progress,.forest-scroll-hint{display:none}}
