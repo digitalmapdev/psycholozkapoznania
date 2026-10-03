@@ -34,48 +34,56 @@
   </header>
 
   <main>
-    <section class="hero section-dark" data-hero>
-      <div class="hero-bg" aria-hidden="true" data-parallax></div>
-      <div class="hero-scrim" aria-hidden="true"></div>
-      <div class="leaf leaf-a" aria-hidden="true"></div>
-      <div class="shell hero-grid">
-        <div class="hero-copy hero-enter">
-          <div class="eyebrow">● &nbsp; PSYCHOLOG • POZNAŃ</div>
-          <h1>Przestrzeń, w której <em>możesz</em> odetchnąć<br>i uporządkować myśli</h1>
-          <p>Gabinet psychologiczny Anny Bagrowskiej w Poznaniu. Indywidualne konsultacje dla dorosłych — w atmosferze spokoju, dyskrecji i realnego wsparcia.</p>
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-gold magnetic">Umów pierwszą konsultację <span>→</span></a>
-            <a href="#about" class="btn btn-ghost magnetic">Poznaj gabinet</a>
-          </div>
-          <div class="micro-features">
-            <span>▣ <b>Pełna poufność</b></span>
-            <span>◷ <b>50-minutowe sesje</b></span>
-            <span>▱ <b>Online / stacjonarnie</b></span>
+    <section class="forest-world" data-forest-world aria-label="Interaktywny leśny świat">
+      <div class="forest-sticky">
+        <video class="forest-video" data-forest-video muted playsinline preload="auto" poster="assets/forest-poster.jpg" aria-hidden="true">
+          <source src="assets/forest-motion.mp4" type="video/mp4" />
+        </video>
+        <div class="forest-overlay" aria-hidden="true"></div>
+        <div class="forest-vignette" aria-hidden="true"></div>
+
+        <div class="forest-scene forest-scene-1 is-active" data-forest-scene="0">
+          <div class="shell forest-copy">
+            <div class="eyebrow">● &nbsp; PSYCHOLOG • POZNAŃ</div>
+            <h1>Nie wszystko musisz<br>nieść samodzielnie.</h1>
+            <p>Spokojna przestrzeń, w której możesz się zatrzymać, lepiej zrozumieć siebie i odnaleźć własną drogę.</p>
+            <div class="hero-actions">
+              <a href="#contact" class="btn btn-gold magnetic">Umów pierwszą konsultację <span>→</span></a>
+              <a href="#about" class="btn btn-ghost magnetic">Poznaj mnie</a>
+            </div>
+            <div class="micro-features">
+              <span>▣ <b>Pełna poufność</b></span>
+              <span>◷ <b>50-minutowe sesje</b></span>
+              <span>▱ <b>Online / stacjonarnie</b></span>
+            </div>
           </div>
         </div>
 
-        <aside class="booking-card hero-enter hero-enter-delay" aria-label="Podgląd dostępnych terminów">
-          <div class="calendar-head">
-            <span>Sierpień 2024</span>
-            <div>‹ &nbsp; ›</div>
+        <div class="forest-scene forest-scene-2" data-forest-scene="1">
+          <div class="shell">
+            <p class="forest-big-copy">Czasem pierwszy krok<br>to po prostu się zatrzymać.</p>
           </div>
-          <div class="weekdays"><span>Pn</span><span>Wt</span><span>Śr</span><span>Cz</span><span>Pt</span><span>So</span><span>Nd</span></div>
-          <div class="days" aria-label="Wybierz dzień">
-            <span></span><span></span><span></span><span>1</span><span>2</span><span>3</span><span>4</span>
-            <span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span>
-            <button type="button">12</button><button type="button">13</button><button type="button" class="active">14</button><button type="button">15</button><button type="button">16</button><button type="button">17</button><button type="button">18</button>
-            <button type="button">19</button><button type="button">20</button><button type="button">21</button><button type="button">22</button><button type="button">23</button><button type="button">24</button><button type="button">25</button>
-            <button type="button">26</button><button type="button">27</button><button type="button">28</button><button type="button">29</button><button type="button">30</button><button type="button">31</button><span></span>
+        </div>
+
+        <div class="forest-scene forest-scene-3" data-forest-scene="2">
+          <div class="shell forest-align-right">
+            <p class="forest-big-copy">Zrozumieć, co dziś<br>jest dla Ciebie trudne.</p>
           </div>
-          <div class="slots">
-            <button><b>10:00</b><span>Dostępny</span></button>
-            <button><b>11:00</b><span>Dostępny</span></button>
-            <button><b>13:00</b><span>Dostępny</span></button>
+        </div>
+
+        <div class="forest-scene forest-scene-4" data-forest-scene="3">
+          <div class="shell">
+            <p class="forest-big-copy">I znaleźć własny sposób,<br>żeby ruszyć dalej.</p>
+            <a href="#about" class="forest-next">Poznaj Annę <span>↓</span></a>
           </div>
-          <a href="#contact" class="btn btn-gold btn-full">Wybierz termin</a>
-        </aside>
+        </div>
+
+        <div class="forest-scroll-hint" aria-hidden="true">
+          <span></span>
+          <small>przewiń, aby wejść głębiej</small>
+        </div>
+        <div class="forest-progress" aria-hidden="true"><span data-forest-progress></span></div>
       </div>
-      <div class="hand-note note-hero">Czasem<br>wystarczy<br>odpowiednia<br>przestrzeń.</div>
     </section>
 
     <section class="about paper" id="about">
