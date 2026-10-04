@@ -7,7 +7,7 @@
   <meta name="description" content="Gabinet psychologiczny w Poznaniu. Konsultacje indywidualne dla osób dorosłych — online i stacjonarnie." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -34,70 +34,68 @@
   </header>
 
   <main>
-    <section class="forest-world forest-world-v3" data-forest-world aria-label="Leśny świat Anny Bagrowskiej">
+    <section class="forest-world forest-world-v4" data-forest-world aria-label="Leśny świat Anny Bagrowskiej">
       <div class="forest-sticky">
         <video class="forest-video" data-forest-video autoplay muted loop playsinline preload="auto" poster="assets/forest-poster.jpg" aria-hidden="true">
           <source src="assets/forest-motion.mp4" type="video/mp4" />
         </video>
-        <div class="forest-overlay" aria-hidden="true"></div>
-        <div class="forest-vignette" aria-hidden="true"></div>
+        <div class="forest-overlay-v4" aria-hidden="true"></div>
+        <div class="forest-grain" aria-hidden="true"></div>
 
-        <div class="forest-home is-active" data-forest-home>
-          <div class="shell forest-home-grid">
-            <div class="forest-copy-v3">
-              <div class="eyebrow">PSYCHOLOG • POZNAŃ</div>
-              <h1>Nie wszystko musisz<br>nieść samodzielnie.</h1>
-              <p>Spokojna przestrzeń do rozmowy, zrozumienia tego, co dziś jest trudne, i znalezienia własnego kierunku.</p>
-              <div class="hero-actions">
-                <a href="#contact" class="btn btn-gold magnetic">Umów pierwszą konsultację <span>→</span></a>
-                <a href="#about" class="btn btn-ghost magnetic">Poznaj Annę</a>
+        <div class="forest-home-v4 is-active" data-forest-home>
+          <div class="shell forest-layout-v4">
+            <div class="forest-copy-v4">
+              <div class="forest-kicker">PSYCHOLOG • POZNAŃ</div>
+              <h1>Droga do poznania siebie<br><em>zaczyna się od rozmowy.</em></h1>
+              <p>Spokojna, uważna przestrzeń do zrozumienia tego, co dziś jest trudne — i odnalezienia własnego kierunku.</p>
+              <div class="forest-actions-v4">
+                <a href="#contact" class="forest-primary-v4 magnetic">Umów pierwszą konsultację <span>↗</span></a>
+                <a href="#about" class="forest-text-link">Poznaj Annę <span>↓</span></a>
+              </div>
+              <div class="forest-trust-v4" aria-label="Informacje o konsultacji">
+                <span>50 min</span><i></i><span>Poznań / online</span><i></i><span>Pełna poufność</span>
               </div>
             </div>
 
-            <div class="forest-anna-stage" aria-label="Anna Bagrowska">
-              <div class="forest-anna-photo">
-                <img src="assets/anna-portrait.jpeg" alt="Anna Bagrowska, psycholożka" />
-                <div class="forest-anna-fade" aria-hidden="true"></div>
-              </div>
-              <div class="forest-anna-label">
+            <div class="forest-person-v4" aria-label="Anna Bagrowska, psycholożka">
+              <div class="forest-person-glow" aria-hidden="true"></div>
+              <img src="assets/anna-portrait.jpeg" alt="Anna Bagrowska, psycholożka" />
+              <div class="forest-person-caption">
                 <strong>Anna Bagrowska</strong>
                 <span>psycholożka • Poznań</span>
               </div>
-
-              <aside class="forest-mini-booking" aria-label="Szybki wybór terminu">
-                <div class="mini-booking-head">
-                  <div><small>PIERWSZA KONSULTACJA</small><strong>Wybierz dzień</strong></div>
-                  <span>50 min</span>
-                </div>
-                <div class="mini-days" role="group" aria-label="Preferowany dzień">
-                  <button type="button" data-booking-day="5 października"><small>Pn</small><b>5</b></button>
-                  <button type="button" data-booking-day="6 października"><small>Wt</small><b>6</b></button>
-                  <button type="button" data-booking-day="7 października"><small>Śr</small><b>7</b></button>
-                  <button type="button" data-booking-day="8 października"><small>Cz</small><b>8</b></button>
-                </div>
-                <a href="#contact" class="mini-booking-cta" data-booking-cta aria-disabled="true">Poproś o termin <span>→</span></a>
-              </aside>
             </div>
+
+            <aside class="forest-booking-v4" aria-label="Szybkie umówienie konsultacji">
+              <div class="forest-booking-copy-v4">
+                <small>PIERWSZA KONSULTACJA</small>
+                <strong>Wybierz dogodny dzień</strong>
+              </div>
+              <div class="forest-booking-days-v4" role="group" aria-label="Preferowany dzień">
+                <button type="button" data-booking-day="5 października"><span>Pn</span><b>05</b></button>
+                <button type="button" data-booking-day="6 października"><span>Wt</span><b>06</b></button>
+                <button type="button" data-booking-day="7 października"><span>Śr</span><b>07</b></button>
+              </div>
+              <a href="#contact" class="forest-booking-go-v4" data-booking-cta aria-disabled="true">Poproś o termin <span>→</span></a>
+            </aside>
           </div>
         </div>
 
-        <div class="forest-stop forest-stop-1" data-forest-stop="1">
-          <span class="forest-stop-no">01</span>
-          <div><small>ZATRZYMAJ SIĘ</small><strong>Nie musisz od razu znać odpowiedzi.</strong></div>
+        <div class="forest-waypoint forest-waypoint-1" data-forest-stop="1">
+          <span class="forest-waypoint-dot"></span>
+          <div><small>PRZYSTANEK 01</small><strong>Zatrzymaj się.</strong><p>Nie musisz od razu wiedzieć, co dalej.</p></div>
         </div>
-        <div class="forest-stop forest-stop-2" data-forest-stop="2">
-          <span class="forest-stop-no">02</span>
-          <div><small>NAZWIJ TO</small><strong>Możemy spokojnie przyjrzeć się temu, co teraz jest trudne.</strong></div>
+        <div class="forest-waypoint forest-waypoint-2" data-forest-stop="2">
+          <span class="forest-waypoint-dot"></span>
+          <div><small>PRZYSTANEK 02</small><strong>Przyjrzyj się temu.</strong><p>Nazwanie tego, co trudne, często porządkuje więcej niż się wydaje.</p></div>
         </div>
-        <div class="forest-stop forest-stop-3" data-forest-stop="3">
-          <span class="forest-stop-no">03</span>
-          <div><small>ZNAJDŹ KIERUNEK</small><strong>Zmiana nie musi wydarzyć się naraz.</strong></div>
+        <div class="forest-waypoint forest-waypoint-3" data-forest-stop="3">
+          <span class="forest-waypoint-dot"></span>
+          <div><small>PRZYSTANEK 03</small><strong>Znajdź własny kierunek.</strong><p>Zmiana nie musi wydarzyć się naraz.</p></div>
         </div>
 
-        <div class="forest-scroll-hint" aria-hidden="true">
-          <span></span><small>wejdź głębiej</small>
-        </div>
-        <div class="forest-progress" aria-hidden="true"><span data-forest-progress></span></div>
+        <div class="forest-scroll-hint-v4" aria-hidden="true"><span></span><small>wejdź głębiej</small></div>
+        <div class="forest-progress-v4" aria-hidden="true"><span data-forest-progress></span></div>
       </div>
     </section>
 
