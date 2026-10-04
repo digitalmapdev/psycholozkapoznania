@@ -189,9 +189,9 @@ document.querySelectorAll('.support-card').forEach(card=>{
     const travel=Math.max(1,world.offsetHeight-innerHeight);
     const p=clamp(-rect.top/travel,0,1);
     if(progressEl) progressEl.style.transform=`scaleY(${p})`;
-    home?.classList.toggle('is-away',p>.21);
+    home?.classList.toggle('is-away',p>.18);
     stops.forEach((stop,i)=>{
-      const centers=[.34,.56,.78];
+      const centers=[.31,.54,.78];
       const active=Math.abs(p-centers[i])<.105;
       stop.classList.toggle('is-active',active);
     });
