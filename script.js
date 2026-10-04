@@ -161,94 +161,57 @@ document.querySelectorAll('.support-card').forEach(card=>{
   });
 });
 
-// Forest World: scroll position scrubs the cinematic video timeline.
+
+// Forest World V3: video plays normally; scroll reveals subtle waypoints.
 (()=>{
   const world=document.querySelector('[data-forest-world]');
   const video=world?.querySelector('[data-forest-video]');
-  if(!world || !video) return;
-
-  const scenes=[...world.querySelectorAll('[data-forest-scene]')];
+  if(!world) return;
   const progressEl=world.querySelector('[data-forest-progress]');
-  const reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let duration=0;
-  let frameRequest=0;
-  let targetTime=0;
-  let seekRequest=0;
-
+  const home=world.querySelector('[data-forest-home]');
+  const stops=[...world.querySelectorAll('[data-forest-stop]')];
+  const reduceMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;
   const clamp=(v,min,max)=>Math.min(max,Math.max(min,v));
-  const sceneIndex=p=>p<.26?0:p<.51?1:p<.76?2:3;
 
-  function progress(){
-    const rect=world.getBoundingClientRect();
-    const travel=Math.max(1,world.offsetHeight-window.innerHeight);
-    return clamp(-rect.top/travel,0,1);
-  }
-
-  function seek(){
-    seekRequest=0;
-    if(!duration || video.readyState<1) return;
-    const safeTarget=clamp(targetTime,0,Math.max(0,duration-.04));
-    try{
-      // fastSeek is faster when supported; currentTime is the reliable fallback.
-      if(typeof video.fastSeek==='function' && Math.abs(video.currentTime-safeTarget)>.18){
-        video.fastSeek(safeTarget);
-      }else if(Math.abs(video.currentTime-safeTarget)>.018){
-        video.currentTime=safeTarget;
-      }
-    }catch(_e){}
+  if(video && !reduceMotion){
+    video.muted=true;
+    video.loop=true;
+    video.playsInline=true;
+    const startPlayback=()=>video.play().catch(()=>{});
+    if(video.readyState>=2) startPlayback();
+    else video.addEventListener('canplay',startPlayback,{once:true});
+    document.addEventListener('pointerdown',startPlayback,{once:true});
+    document.addEventListener('touchstart',startPlayback,{once:true,passive:true});
   }
 
   function render(){
-    frameRequest=0;
-    const p=progress();
-    const active=sceneIndex(p);
-    scenes.forEach((scene,index)=>scene.classList.toggle('is-active',index===active));
+    const rect=world.getBoundingClientRect();
+    const travel=Math.max(1,world.offsetHeight-innerHeight);
+    const p=clamp(-rect.top/travel,0,1);
     if(progressEl) progressEl.style.transform=`scaleY(${p})`;
-    world.classList.toggle('is-progressed',p>.035);
-
-    if(!reduceMotion && duration){
-      targetTime=p*duration;
-      if(!seekRequest) seekRequest=requestAnimationFrame(seek);
-    }
+    home?.classList.toggle('is-away',p>.21);
+    stops.forEach((stop,i)=>{
+      const centers=[.34,.56,.78];
+      const active=Math.abs(p-centers[i])<.105;
+      stop.classList.toggle('is-active',active);
+    });
   }
+  let raf=0;
+  const queue=()=>{if(!raf) raf=requestAnimationFrame(()=>{raf=0;render()})};
+  addEventListener('scroll',queue,{passive:true});
+  addEventListener('resize',queue,{passive:true});
+  render();
 
-  function queue(){ if(!frameRequest) frameRequest=requestAnimationFrame(render); }
-
-  function initVideo(){
-    duration=Number.isFinite(video.duration)?video.duration:0;
-    video.pause();
-    video.muted=true;
-    video.playsInline=true;
-    // Safari/Chromium may not decode a frame until play() is initiated once.
-    const warmup=video.play();
-    if(warmup && typeof warmup.then==='function'){
-      warmup.then(()=>{video.pause();video.currentTime=0;queue()}).catch(()=>queue());
-    }else queue();
-  }
-
-  if(video.readyState>=1) initVideo();
-  else video.addEventListener('loadedmetadata',initVideo,{once:true});
-  video.addEventListener('loadeddata',queue,{once:true});
-  window.addEventListener('scroll',queue,{passive:true});
-  window.addEventListener('resize',queue,{passive:true});
-  queue();
-
-  // Booking teaser: choose a preferred date, then carry it into the contact form.
   const dayButtons=[...world.querySelectorAll('[data-booking-day]')];
-  const selectedLabel=world.querySelector('[data-selected-date]');
   const bookingCta=world.querySelector('[data-booking-cta]');
   const topicField=document.querySelector('#topicField');
-  let selectedDay='';
-
+  let selected='';
   dayButtons.forEach(btn=>btn.addEventListener('click',()=>{
-    selectedDay=btn.dataset.bookingDay || '';
+    selected=btn.dataset.bookingDay||'';
     dayButtons.forEach(b=>b.classList.toggle('is-selected',b===btn));
-    if(selectedLabel) selectedLabel.textContent=`Preferowany dzień: ${selectedDay}`;
-    if(bookingCta) bookingCta.setAttribute('aria-disabled','false');
+    bookingCta?.setAttribute('aria-disabled','false');
   }));
-
   bookingCta?.addEventListener('click',()=>{
-    if(!selectedDay) return;
-    if(topicField) topicField.value=`Pierwsza konsultacja — preferowany termin: ${selectedDay}`;
+    if(selected && topicField) topicField.value=`Pierwsza konsultacja — preferowany termin: ${selected}`;
   });
 })();
